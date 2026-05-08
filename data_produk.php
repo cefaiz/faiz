@@ -164,7 +164,7 @@
         <div class="col-lg-12">
           <div class="card">
             <div class="card-body mt-3">
-              <a href="t_produk.php" class="btn btn-primary">Tambah Data</a>
+              <a href="t_produk.php" class="btn btn-success">Tambah Data</a>
               <a href="stok.php" class="btn btn-primary">Stok</a>
             </div>
           </div>
