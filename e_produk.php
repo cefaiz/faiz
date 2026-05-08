@@ -48,10 +48,10 @@ if (isset($_POST['update'])) {
     }
     if ($update) {
         echo "<script>alert('Data berhasil diubah!')</script>";
-        header("refresh:0, produk.php");
+        header("refresh:0, data_produk.php");
     } else {
         echo "<script>alert('Data gagal diubah!')</script>";
-        header("refresh:0, produk.php");
+        header("refresh:0, data_produk.php");
     }
 }
 ?>
