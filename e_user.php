@@ -84,219 +84,191 @@ if (isset($_POST['update'])) {
 <body>
 
     <!-- ======= Header ======= -->
-    <header id="header" class="header fixed-top d-flex align-items-center">
+    <<nav class="header-nav ms-auto">
+        <ul class="d-flex align-items-center">
 
-        <div class="d-flex align-items-center justify-content-between">
-            <a href="index.php" class="logo d-flex align-items-center">
-                <img src="assets/img/logo.png" alt="">
-                <span class="d-none d-lg-block">Nama Sistem</span>
-            </a>
-            <i class="bi bi-list toggle-sidebar-btn"></i>
-        </div><!-- End Logo -->
+            <li class="nav-item dropdown pe-3">
 
-        <nav class="header-nav ms-auto">
-            <ul class="d-flex align-items-center">
+                <a
+                    class="nav-link nav-profile d-flex align-items-center pe-0"
+                    href="#"
+                    data-bs-toggle="dropdown">
+                    <img
+                        src="assets/img/profile-img.jpg"
+                        alt="Profile"
+                        class="rounded-circle" /> </a><!-- End Profile Image Icon -->
 
-                <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                    <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-                </a><!-- End Profile Iamge Icon -->
-
-                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+                <ul
+                    class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                     <li class="dropdown-header">
-                        <h6>Kevin Anderson</h6>
-                        <span>Web Designer</span>
-                    </li>
-                    <li>
-                        <hr class="dropdown-divider">
+                        <h6><?php echo isset($_SESSION['name']) ? $_SESSION['name'] : 'User'; ?></h6>
+                        <span><?php echo isset($_SESSION['role']) ? $_SESSION['role'] : 'Role'; ?></span>
                     </li>
 
                     <li>
-                        <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                            <i class="bi bi-person"></i>
-                            <span>My Profile</span>
-                        </a>
-                    </li>
-                    <li>
-                        <hr class="dropdown-divider">
+                        <hr class="dropdown-divider" />
                     </li>
 
                     <li>
-                        <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                            <i class="bi bi-gear"></i>
-                            <span>Account Settings</span>
-                        </a>
-                    </li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-
-                    <li>
-                        <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
-                            <i class="bi bi-question-circle"></i>
-                            <span>Need Help?</span>
-                        </a>
-                    </li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-
-                    <li>
-                        <a class="dropdown-item d-flex align-items-center" href="#">
+                        <a class="dropdown-item d-flex align-items-center" href="logout.php">
                             <i class="bi bi-box-arrow-right"></i>
                             <span>Sign Out</span>
                         </a>
                     </li>
 
-                </ul><!-- End Profile Dropdown Items -->
-                </li><!-- End Profile Nav -->
+                </ul>
+                <!-- End Profile Dropdown Items -->
+            </li>
+            <!-- End Profile Nav -->
 
-            </ul>
-        </nav><!-- End Icons Navigation -->
-
-    </header><!-- End Header -->
-
-    <!-- ======= Sidebar ======= -->
-    <aside id="sidebar" class="sidebar">
-
-        <ul class="sidebar-nav" id="sidebar-nav">
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="index.php">
-                    <i class="bi bi-grid"></i>
-                    <span>Dashboard</span>
-                </a>
-            </li><!-- End Dashboard Nav -->
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="kategori_produk.php">
-                    <i class="bi bi-person"></i>
-                    <span>Kategori Produk</span>
-                </a>
-            </li><!-- End Profile Page Nav -->
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="produk.php">
-                    <i class="bi bi-question-circle"></i>
-                    <span>Data_Produk</span>
-                </a>
-            </li><!-- End F.A.Q Page Nav -->
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="laporan.php">
-                    <i class="bi bi-envelope"></i>
-                    <span>Laporan</span>
-                </a>
-            </li><!-- End Contact Page Nav -->
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="users.php">
-                    <i class="bi bi-card-list"></i>
-                    <span>Manajemen User</span>
-                </a>
-            </li><!-- End Register Page Nav -->
         </ul>
+        </nav>
+        <!-- End Icons Navigation -->
 
-    </aside><!-- End Sidebar-->
+        </header><!-- End Header -->
 
-    <main id="main" class="main">
+        <!-- ======= Sidebar ======= -->
+        <aside id="sidebar" class="sidebar">
 
-        <div class="pagetitle">
-            <h1>Manajemen User</h1>
-            <nav>
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
-                    <li class="breadcrumb-item">Manajemen User</li>
-                    <li class="breadcrumb-item active">Edit</li>
-                </ol>
-            </nav>
-        </div><!-- End Page Title -->
-        <section class="section">
-            <div class="row">
-                <div class="col-lg-6">
+            <ul class="sidebar-nav" id="sidebar-nav">
 
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Vertical Form</h5>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="index.php">
+                        <i class="bi bi-grid"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li><!-- End Dashboard Nav -->
 
-                            <!-- Vertical Form -->
-                            <form class="row g-3" method="post">
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="kategori_produk.php">
+                        <i class="bi bi-person"></i>
+                        <span>Kategori Produk</span>
+                    </a>
+                </li><!-- End Profile Page Nav -->
 
-                                <!-- Bagian dari a.png dan d.png -->
-                                <div class="col-12">
-                                    <label class="form-label">Nama</label>
-                                    <input type="text" class="form-control" name="name"
-                                        value="<?php echo $user['name']; ?>" required>
-                                </div>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="produk.php">
+                        <i class="bi bi-question-circle"></i>
+                        <span>Data_Produk</span>
+                    </a>
+                </li><!-- End F.A.Q Page Nav -->
 
-                                <div class="col-12">
-                                    <label class="form-label">Email</label>
-                                    <input type="email" class="form-control" name="email"
-                                        value="<?php echo $user['email']; ?>" required>
-                                </div>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="laporan.php">
+                        <i class="bi bi-envelope"></i>
+                        <span>Laporan</span>
+                    </a>
+                </li><!-- End Contact Page Nav -->
 
-                                <div class="col-12">
-                                    <label class="form-label">Password</label>
-                                    <input type="password" class="form-control" name="password">
-                                    <small class="text-muted">Kosongkan jika tidak ingin mengubah password</small>
-                                </div>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="users.php">
+                        <i class="bi bi-card-list"></i>
+                        <span>Manajemen User</span>
+                    </a>
+                </li><!-- End Register Page Nav -->
+            </ul>
 
-                                <!-- Bagian dari b.png -->
-                                <div class="col-12">
-                                    <label class="form-label">Role</label>
-                                    <select class="form-control" name="role" required>
-                                        <option value="admin" <?php if ($user['role'] == 'admin') echo 'selected'; ?>>Admin</option>
-                                        <option value="staff" <?php if ($user['role'] == 'staff') echo 'selected'; ?>>Staff</option>
-                                    </select>
-                                </div>
+        </aside><!-- End Sidebar-->
 
-                                <div class="col-12">
-                                    <label class="form-label">Status</label>
-                                    <select class="form-control" name="is_active">
-                                        <option value="1" <?php if ($user['is_active'] == 1) echo 'selected'; ?>>Aktif</option>
-                                        <option value="0" <?php if ($user['is_active'] == 0) echo 'selected'; ?>>Nonaktif</option>
-                                    </select>
-                                </div>
+        <main id="main" class="main">
 
-                                <!-- Bagian dari c.png -->
-                                <div class="text-center">
-                                    <a href="users.php" class="btn btn-warning">Kembali</a>
-                                    <button type="submit" class="btn btn-success" name="update">Update</button>
-                                </div>
+            <div class="pagetitle">
+                <h1>Manajemen User</h1>
+                <nav>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
+                        <li class="breadcrumb-item">Manajemen User</li>
+                        <li class="breadcrumb-item active">Edit</li>
+                    </ol>
+                </nav>
+            </div><!-- End Page Title -->
+            <section class="section">
+                <div class="row">
+                    <div class="col-lg-6">
 
-                            </form><!-- Vertical Form -->
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Vertical Form</h5>
 
+                                <!-- Vertical Form -->
+                                <form class="row g-3" method="post">
+
+                                    <!-- Bagian dari a.png dan d.png -->
+                                    <div class="col-12">
+                                        <label class="form-label">Nama</label>
+                                        <input type="text" class="form-control" name="name"
+                                            value="<?php echo $user['name']; ?>" required>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <label class="form-label">Email</label>
+                                        <input type="email" class="form-control" name="email"
+                                            value="<?php echo $user['email']; ?>" required>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <label class="form-label">Password</label>
+                                        <input type="password" class="form-control" name="password">
+                                        <small class="text-muted">Kosongkan jika tidak ingin mengubah password</small>
+                                    </div>
+
+                                    <!-- Bagian dari b.png -->
+                                    <div class="col-12">
+                                        <label class="form-label">Role</label>
+                                        <select class="form-control" name="role" required>
+                                            <option value="admin" <?php if ($user['role'] == 'admin') echo 'selected'; ?>>Admin</option>
+                                            <option value="staff" <?php if ($user['role'] == 'staff') echo 'selected'; ?>>Staff</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <label class="form-label">Status</label>
+                                        <select class="form-control" name="is_active">
+                                            <option value="1" <?php if ($user['is_active'] == 1) echo 'selected'; ?>>Aktif</option>
+                                            <option value="0" <?php if ($user['is_active'] == 0) echo 'selected'; ?>>Nonaktif</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- Bagian dari c.png -->
+                                    <div class="text-center">
+                                        <a href="users.php" class="btn btn-warning">Kembali</a>
+                                        <button type="submit" class="btn btn-success" name="update">Update</button>
+                                    </div>
+
+                                </form><!-- Vertical Form -->
+
+                            </div>
                         </div>
                     </div>
                 </div>
+            </section>
+
+        </main><!-- End #main -->
+
+        <!-- ======= Footer ======= -->
+        <footer id="footer" class="footer">
+            <div class="copyright">
+                &copy; Copyright <strong><span>faiz</span></strong>. All Rights Reserved
             </div>
-        </section>
+            <div class="credits">
+            Designed by <a href="https://Instagram.com/cefaxiiz_/" target=" _blank">Chesta Faiz</a>
+            </div>
+        </footer><!-- End Footer -->
 
-    </main><!-- End #main -->
+        <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-    <!-- ======= Footer ======= -->
-    <footer id="footer" class="footer">
-        <div class="copyright">
-            &copy; Copyright <strong><span>Nama Sistem</span></strong>. All Rights Reserved
-        </div>
-        <div class="credits">
-            Designed by <a href="">Nama Kalian</a>
-        </div>
-    </footer><!-- End Footer -->
+        <!-- Vendor JS Files -->
+        <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+        <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/vendor/chart.js/chart.umd.js"></script>
+        <script src="assets/vendor/echarts/echarts.min.js"></script>
+        <script src="assets/vendor/quill/quill.min.js"></script>
+        <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
+        <script src="assets/vendor/tinymce/tinymce.min.js"></script>
+        <script src="assets/vendor/php-email-form/validate.js"></script>
 
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-    <!-- Vendor JS Files -->
-    <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/chart.js/chart.umd.js"></script>
-    <script src="assets/vendor/echarts/echarts.min.js"></script>
-    <script src="assets/vendor/quill/quill.min.js"></script>
-    <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
-    <script src="assets/vendor/tinymce/tinymce.min.js"></script>
-    <script src="assets/vendor/php-email-form/validate.js"></script>
-
-    <!-- Template Main JS File -->
-    <script src="assets/js/main.js"></script>
+        <!-- Template Main JS File -->
+        <script src="assets/js/main.js"></script>
 
 </body>
 
